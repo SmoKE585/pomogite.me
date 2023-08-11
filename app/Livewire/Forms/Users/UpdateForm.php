@@ -22,7 +22,7 @@ class UpdateForm extends Form
     public string $password_confirmation = '';
 
     #[Rule('nullable|boolean')]
-    public string $active = '';
+    public bool $active;
 
     public function validate()
     {
