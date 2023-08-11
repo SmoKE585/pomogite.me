@@ -4,6 +4,7 @@ namespace App\Livewire\Users;
 
 use App\Models\Users\User;
 use Livewire\Component;
+use Livewire\Features\SupportEvents\On;
 use Livewire\Features\SupportQueryString\Url;
 use Livewire\WithPagination;
 
@@ -14,6 +15,7 @@ class Index extends Component
     #[Url]
     public ?string $search = null;
 
+    #[On('refresh')]
     public function render()
     {
         return view('livewire.users.index', [
