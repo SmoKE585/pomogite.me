@@ -18,9 +18,10 @@
 - Livewire-modal
 - drandin/declension-nouns
 - ViteJS
+- Tailwind (flowbite, tailwindcss-animated)
 
 ## Installation
-Слонировать репозиторий и запустить сидов
+Клонировать репозиторий и запустить сидов
 
 ```sh
 php artisan db:seed
