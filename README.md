@@ -13,6 +13,7 @@
 ## Технологии
 
 - Laravel 10
+- SQLite
 - Livewire 3
 - AlpineJS
 - Livewire-modal

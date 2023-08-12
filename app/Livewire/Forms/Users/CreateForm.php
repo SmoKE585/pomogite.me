@@ -18,4 +18,6 @@ class CreateForm extends Form
 
     #[Rule('required|min:6')]
     public string $password_confirmation = '';
+
+    protected bool $active = true;
 }

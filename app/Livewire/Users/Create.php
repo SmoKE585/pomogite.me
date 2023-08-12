@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Users;
 
+use App\Livewire\Forms\Users\CreateForm;
 use App\Livewire\Forms\Users\UpdateForm;
 use App\Models\Users\User;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +17,7 @@ class Create extends ModalComponent
         return '3xl';
     }
 
-    public UpdateForm $form;
+    public CreateForm $form;
 
     public function save() {
         $this->form->validate();

@@ -66,7 +66,7 @@
                     </button>
                     <div class="text-sm font-medium text-gray-500 dark:text-gray-400">
                         Не зарегистрированы?
-                        <a class="text-primary-700 hover:underline dark:text-primary-500">Создать аккаунт!</a>
+                        <a href="#" wire:click="$dispatch('openModal', { component: 'users.create' })" class="text-primary-700 hover:underline dark:text-primary-500">Создать аккаунт!</a>
                     </div>
                 </form>
             </div>
