@@ -1,5 +1,7 @@
 # POMOGITE.ME
 
+![Logo](https://github.com/SmoKE585/pomogite.me/raw/main/public/images/logo.svg)
+
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=22&pause=1000&color=F72E2E&width=435&lines=PET+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82+%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%B0+%D0%90%D0%B1%D0%BE%D0%BB%D0%BC%D0%B0%D1%81%D0%BE%D0%B2%D0%B0)](https://git.io/typing-svg)
 
 Публичная HelpDesk система для всех. Перспективный функционал:
