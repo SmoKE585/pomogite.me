@@ -59,6 +59,8 @@ module.exports = {
     },
     plugins: [
         require('flowbite/plugin'),
-        require('tailwindcss-animated')
+        require('tailwindcss-animated'),
+        require('tailwind-scrollbar'),
+        require('tailwindcss-hero-patterns')
     ],
 }

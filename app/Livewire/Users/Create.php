@@ -4,6 +4,7 @@ namespace App\Livewire\Users;
 
 use App\Livewire\Forms\Users\CreateForm;
 use App\Livewire\Forms\Users\UpdateForm;
+use App\Livewire\Traits\GenerateUserPassword;
 use App\Models\Users\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -12,6 +13,8 @@ use LivewireUI\Modal\ModalComponent;
 
 class Create extends ModalComponent
 {
+    use GenerateUserPassword;
+
     public static function modalMaxWidth(): string
     {
         return '3xl';
@@ -31,10 +34,9 @@ class Create extends ModalComponent
         $this->closeModal();
     }
 
-    public function generatePassword() {
-        $pass = Str::random(8);
-        $this->form->password = $pass;
-        $this->form->password_confirmation = $pass;
+    public function generatePassword()
+    {
+        $this->setRandomPassword();
     }
 
     public function render()

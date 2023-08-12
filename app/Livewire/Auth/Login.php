@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Auth;
 
+use App\Exceptions\Auth\LoginFailed;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -15,16 +16,21 @@ class Login extends Component
 
     public bool $isError = false;
 
-    public function login()
+    public function login() : void
     {
         $data = $this->validate();
 
         if(Auth::attempt($data)) {
-            return $this->redirect('/users', navigate: true);
-        } else {
-            $this->password = '';
-            $this->isError = true;
+            $this->successAuth();
         }
+
+        $this->password = '';
+        $this->isError = true;
+    }
+
+    public function successAuth() : void
+    {
+        $this->redirect('/users', navigate: true);
     }
 
     public function render()
