@@ -3,12 +3,18 @@
 namespace App\Observers\Projects;
 
 use App\Models\Projects\Project;
+use App\Models\Projects\ProjectDomain;
+use App\Models\Projects\ProjectMember;
 
 class ProjectObserver
 {
-    public function creating(Project $project) {
-        $project->headleader = auth()->id();
-        $project->tariff_id = 1;
-        $project->domain .= '.pomogite.me';
+    public function created(Project $project) {
+        //Добавляем участника в проект
+        ProjectMember::create([
+            'project_id' => $project->id,
+            'user_id' => auth()->id(),
+            'owner' => true,
+            'total' => 1,
+        ]);
     }
 }

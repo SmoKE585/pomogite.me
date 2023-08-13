@@ -10,7 +10,7 @@ class CreateForm extends Form
     #[Rule('required|min:5')]
     public string $name = '';
 
-    #[Rule('required|email:rfc,dns')]
+    #[Rule('required|email:rfc,dns|unique:users,email')]
     public string $email = '';
 
     #[Rule('required|min:6|confirmed')]

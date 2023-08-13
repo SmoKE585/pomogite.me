@@ -2,10 +2,11 @@
 
 namespace App\Livewire\Auth\Register;
 
-use App\Livewire\Forms\Auth\AccountCreateForm;
 use App\Livewire\Forms\Auth\ProjectCreateForm;
 use App\Livewire\Traits\GenerateUserPassword;
 use App\Models\Projects\Project;
+use App\Models\Projects\ProjectDomain;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class ProjectCreate extends Component
@@ -14,10 +15,19 @@ class ProjectCreate extends Component
 
     public ProjectCreateForm $form;
 
-    public function save() {
+    public function save()
+    {
         $data = $this->form->validate();
 
-        $project = Project::create($data);
+        DB::transaction(function() use ($data) {
+            $project = Project::create($data);
+            $domain = ProjectDomain::create([
+                'project_id' => $project->id,
+                'domain' => $data['domain'].'.'.config('app.basedomain'),
+            ]);
+        });
+
+        //$this->redirect(route('projects'), navigate: true);
     }
 
     public function render()

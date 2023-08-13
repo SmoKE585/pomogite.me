@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('project_members', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->bigInteger('domain_id')->nullable();
-            $table->foreign('domain_id')->references('id')->on('project_domain');
+            $table->bigInteger('project_id');
+            $table->foreign('project_id')->references('id')->on('projects');
+            $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->boolean('owner')->default(false);
+            $table->integer('total');
 
             $table->timestamps();
         });
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('project_members');
     }
 };

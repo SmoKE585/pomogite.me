@@ -4,19 +4,17 @@ namespace App\Models\Projects;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Notifications\Notifiable;
 
-class Project extends Model
+class ProjectMember extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'project_id',
+        'user_id',
+        'owner',
+        'total',
     ];
 
-    public function domain(): HasOne
-    {
-        return $this->hasOne(ProjectDomain::class);
-    }
 }
