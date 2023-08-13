@@ -4,6 +4,7 @@ namespace App\Livewire\Auth;
 
 use App\Exceptions\Auth\LoginFailed;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
@@ -15,6 +16,10 @@ class Login extends Component
     public string $password = '';
 
     public bool $isError = false;
+
+    public function mount() {
+        //dd(\request()->domain);
+    }
 
     public function login() : void
     {
@@ -30,7 +35,7 @@ class Login extends Component
 
     public function successAuth() : void
     {
-        $this->redirect('/users', navigate: true);
+        $this->redirect(route('projects'), navigate: true);
     }
 
     public function render()

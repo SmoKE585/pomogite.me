@@ -1,5 +1,5 @@
 @section('page-title')
-    {{$project->name}} | HelpDesk
+    {{$project->name}} | Категории
 @endsection
 
 <div>

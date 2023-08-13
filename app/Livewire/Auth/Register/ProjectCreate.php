@@ -19,15 +19,19 @@ class ProjectCreate extends Component
     {
         $data = $this->form->validate();
 
-        DB::transaction(function() use ($data) {
+        $domain = null;
+
+        DB::transaction(function() use ($data, &$domain) {
             $project = Project::create($data);
             $domain = ProjectDomain::create([
                 'project_id' => $project->id,
                 'domain' => $data['domain'].'.'.config('app.basedomain'),
             ]);
+            $project->domain_id = $domain->id;
+            $project->save();
         });
 
-        //$this->redirect(route('projects'), navigate: true);
+        $this->redirect('http://'.$domain->domain);
     }
 
     public function render()

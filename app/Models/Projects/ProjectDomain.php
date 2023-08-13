@@ -4,6 +4,8 @@ namespace App\Models\Projects;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Notifications\Notifiable;
 
 class ProjectDomain extends Model
@@ -18,4 +20,8 @@ class ProjectDomain extends Model
 
     protected $table = 'project_domain';
 
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class);
+    }
 }

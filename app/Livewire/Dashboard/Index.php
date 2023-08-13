@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Dashboard;
 
+use App\Models\Projects\Project;
 use Livewire\Component;
 
 class Index extends Component
